@@ -160,14 +160,14 @@ ___
 
 ## The Database of the PANDA application support 3 entities:
 [User](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/domain/entities/User.java)
-* Has an Id – a UUID String or an Integer.
+* Has an Id – a UUID String
 * Has an Username
 * Has a Password
 * Has an Email
 * Has an Role – can be one of the following values (“User”, “Admin”)
 
 [Package](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/domain/entities/Package.java)
-* Has an Id – a UUID String or an Integer.
+* Has an Id – a UUID String
 * Has a Description – a string.
 * Has a Weight – a floating-point number.
 * Has a Shipping Address – a string.
@@ -176,7 +176,7 @@ ___
 * Has a Recipient – a User object.
 
 [Receipt](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/domain/entities/Receipt.java)
-* Has an Id – a UUID String or an Integer.
+* Has an Id – a UUID String
 * Has a Fee – a decimal number.
 * Has an Issued On – a LocalDateTime object.
 * Has a Recipient – a User object.
