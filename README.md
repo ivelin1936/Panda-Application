@@ -39,6 +39,45 @@ ___
 </beans>
 ```
 * [web.xml](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/webapp/WEB-INF/web.xml)
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         id="WebApp_ID" version="4.0">
+
+    <!-- Welcome page -->
+    <welcome-file-list>
+        <welcome-file>faces/view/index.xhtml</welcome-file>
+    </welcome-file-list>
+
+    <!-- JSF mapping -->
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- Map these files with JSF -->
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.jsf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.faces</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+</web-app>
+```
 * [persistence.xml](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/resources/META-INF/persistence.xml) - persistence unit setup
 ```html
 <?xml version="1.0" encoding="UTF-8"?>
@@ -50,7 +89,6 @@ ___
 
     <persistence-unit name="pandaPU" transaction-type="RESOURCE_LOCAL">
         <properties>
-            <!-- &amp;allowPublicKeyRetrieval=true -->
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/panda_db?createDatabaseIfNotExist=true&amp;useSSL=false&amp;serverTimezone=UTC" />
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
             <property name="hibernate.hbm2ddl.auto" value="update"/>
