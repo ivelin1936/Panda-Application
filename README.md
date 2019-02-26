@@ -26,8 +26,26 @@ This files should be present in **TomEE\lib** folder
 * [hibernate-jpa-2.1-api-1.0.2.Final.jar](http://central.maven.org/maven2/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.2.Final/hibernate-jpa-2.1-api-1.0.2.Final.jar)
 ___
 #### Project configuration
-..............................................
+* [pom.xml]() - project setup - dependencies, compile, packaging
+* [beans.xml]() - default setup with **bean-discovery-mode="all"**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+                      http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
+        bean-discovery-mode="all">
+</beans>
+```
 ___
+
+## Technologies
+* Java - [JDK11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
+
+## Built With
+* [Maven](https://maven.apache.org/) - Dependency Management
+
 ## Version
 1.0-SNAPSHOT
 
