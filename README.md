@@ -159,6 +159,18 @@ public class UserServiceImpl implements UserService {
 ___
 
 ## Project Functionality
+### Users
+The first registered User should be assigned a role – "Admin". Every User after that, should have a role – "User".
+Users have Packages, which are created and controlled for them, by an Administrator. 
+Users can view Details about their own Packages. 
+When a Package is delivered, a User can acquire it, at which point a Receipt is created with that Package and that User. 
+Users can view their Receipts, and details about each Receipt.
+Administrators (role = "Admin") are essentially like normal Users. They can also have Packages, which are delivered, acquired and they also have Receipts. 
+Administrators can also create Packages for a specific User. 
+* They can also view all Pending Packages, and they can Ship them.
+* They can also view all Shipped Packages, and they can Deliver them.
+* They can also view all Delivered Packages, and they can view Details about them.
+
 ##### The application provide Guest (not logged in) users with the functionality to:
 * Login 
 * Register
@@ -181,6 +193,40 @@ ___
 * View details about all Delivered Packages
 * Ship Packages
 * Deliver Packages
+
+### Packages
+When Packages are created, they are created with a Description, a Weight, a Shipping Address and a Recipient User. 
+* Upon creation, the Status of a Package should be set to Pending.
+* Upon creation, the Estimated Delivery Date of a Package should be set to NULL.
+
+#### Pending Packages
+A Pending Package, can be Shipped by an Administrator, by clicking on the [Ship] button from the Pending Packages Page. At that moment the Package Status becomes "Shipped" and the Estimated Delivery Date is to be set to a random of 20-40 days from then.
+* All Pending Packages are presented on the Pending Packages Page.
+* A User can view his Pending Packages on his Index Page in the Pending rectangular block.
+* A User can view details about each one of his Pending Packages from his Index Page, by clicking on the [Details] button.
+
+#### Shipped Packages
+A Shipped Package, can be Delivered by an Administrator, by clicking on the [Deliver] button from the Shipped Packages Page. At that moment the Package Status becomes "Delivered".
+* All Shipped Packages are presented on the Shipped Packages Page.
+* A User can view his Shipped Packages on his Index Page in the Shipped rectangular block.
+* A User can view details about each one of his Shipped Packages from his Index Page, by clicking on the [Details] button.
+
+#### Delivered Packages
+A Delivered Package, can be Acquired by the Package’s Recipient, by clicking on the [Acquire] button from his Index Page. At that moment the Package Status becomes "Acquired" and a Receipt is generated to the User for that Package.
+All Delivered Packages are presented on the Delivered Packages Page.
+A User can view his Delivered Packages on his Index Page in the Delivered rectangular block.
+A User can Acquire each one of his Delivered Packages from his Index Page, by clicking on the [Acquire] button.
+
+NOTE: The INDEX PAGE visualizes ONLY the CURRENTLY LOGGED IN USER / ADMIN’s PACKAGES.
+NOTE: Acquired Packages are viewable only by Administrators on the Delivered Packages Page.
+NOTE: Administrators can view details about ALL Delivered / Acquired Packages from the
+Delivered Packages Page, by clicking on the [Details] button.
+
+### Receipts
+Receipts are just data entities. They are created when a Package is Acquired by its Recipient User. 
+A Receipt should be created with a Package and a Recipient User.
+Upon creation, a Receipt’s Fee should be set to the Package’s Weight multiplied (*) by 2.67.
+Upon creation, a Receipt’s IssuedOn should be set to the current moment.
 
 ## Security Configurations - mainly access requirements
 * Guest (not logged in) users can access Index page and functionality.
