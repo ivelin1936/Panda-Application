@@ -182,6 +182,74 @@ ___
 * Ship Packages
 * Deliver Packages
 
+## Security Configurations - mainly access requirements
+* Guest (not logged in) users can access Index page and functionality.
+* Guest (not logged in) users can access Login page and functionality.
+* Guest (not logged in) users can access Register page and functionality.
+[Guest WebFilter](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/web/filters/GuestUserFilter.java)
+```java
+@WebFilter({
+        "/faces/view/home.xhtml",
+        "/faces/view/receipts.xhtml",
+        "/faces/view/receipts/*"
+})
+public class GuestUserFilter implements Filter {
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        // ...
+    }
+}
+```
+
+* Users (logged in) can access User LoggedIn Index page and functionality.
+* Users (logged in) can access User Package Details page and functionality.
+* Users (logged in) can access User Receipts page and functionality.
+* Users (logged in) can access User Receipt Details page and functionality. 
+* Users (logged in) can access User Package Acquire functionality.
+* Users (logged in) can access Logout functionality.
+[User WebFilter](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/web/filters/LoggedInUserFilter.java)
+```java
+@WebFilter({
+        "/faces/view/register.xhtml",
+        "/faces/view/login.xhtml",
+        "/faces/view/index.xhtml",
+        "/"
+})
+public class LoggedInUserFilter implements Filter {
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        // ...
+    }
+}
+```
+
+* Admins (logged in) can access every functionality a normal logged in User can.
+* Admins (logged in) can access Admin LoggedIn Index page and functionality.
+* Admins (logged in) can access the Admin Package Create page and functionality.
+* Admins (logged in) can access the Admin Pending Packages page and functionality.
+* Admins (logged in) can access the Admin Shipped Packages page and functionality.
+* Admins (logged in) can access the Admin Delivered Packages page and functionality.
+* Admins (logged in) can access the Admin Package Ship functionality. 
+* Admins (logged in) can access the Admin Package Deliver functionality.
+[Admin WebFilter](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/web/filters/AdminUserFilter.java)
+```java
+@WebFilter({
+        "/faces/view/packages/create.xhtml",
+        "/faces/view/packages/delivered.xhtml",
+        "/faces/view/packages/pending.xhtml",
+        "/faces/view/packages/shipped.xhtml"
+})
+public class LoggedInUserFilter implements Filter {
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        // ...
+    }
+}
+```
+
 ___
 ## Technologies
 * Java - [JDK11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
