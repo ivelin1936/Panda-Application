@@ -78,6 +78,7 @@ ___
     </servlet-mapping>
 </web-app>
 ```
+* Using transaction-type="RESOURCE_LOCAL"
 * [persistence.xml](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/resources/META-INF/persistence.xml) - persistence unit setup
 ```html
 <?xml version="1.0" encoding="UTF-8"?>
@@ -100,6 +101,60 @@ ___
         </properties>
     </persistence-unit>
 </persistence>
+```
+___
+* Creating beans of external classes by **@Produces** annotation
+[Example](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/Config/ApplicationBeanConfiguration.java)
+```java
+public class ApplicationBeanConfiguration {
+
+    @Produces
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
+    }
+
+    @Produces
+    public EntityManager entityManager() {
+        return Persistence.createEntityManagerFactory(AppConstants.PERSISTENCE_UNIT)
+                .createEntityManager();
+    }
+}
+```
+* Use of [Jargon2](https://github.com/kosprov/jargon2-api) for password hashing
+
+[Configuration](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/utils/PasswordHasher.java) 
+[Usage](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/service/userService/UserServiceImpl.java)
+```java
+public class UserServiceImpl implements UserService {
+
+    private final UserRepository userRepository;
+    private final ModelMapper modelMapper;
+    private final PasswordHasher passwordHasher;
+    
+    // ...
+    
+     @Override
+    public void register(UserServiceModel serviceModel) {
+        User user = this.modelMapper.map(serviceModel, User.class);
+        String encodedHash = passwordHasher.encodedHash(serviceModel.getPassword().toCharArray());
+        user.setPassword(encodedHash);
+        this.setUserRole(user);
+
+        this.userRepository.save(user);
+    }
+    
+    @Override
+    public UserServiceModel login(UserServiceModel serviceModel) {
+        User user = userRepository.findByUsername(serviceModel.getUsername());
+
+        char[] passwordCharArr = serviceModel.getPassword().toCharArray();
+        if (user == null || !passwordHasher.verifyEncoded(user.getPassword(), passwordCharArr)) {
+            return null;
+        }
+
+        return this.modelMapper.map(user, UserServiceModel.class);
+    }
+    //...
 ```
 ___
 
