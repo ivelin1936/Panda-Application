@@ -158,6 +158,31 @@ public class UserServiceImpl implements UserService {
 ```
 ___
 
+## Project Functionality
+#### The application should provide Guest (not logged in) users with the functionality to:
+        * Login 
+        * Register
+        * View the Guest Index page
+#### The application should provide Users (logged in) with the functionality to:
+        * Logout
+        * View their Packages
+        * View details about a Package
+        * View their Receipts
+        * View details about a Receipt
+#### The application should provide Admins (logged in, with role - Admin) with the functionality to:
+        * Logout
+        * View their Packages
+        * View details about a Package
+        * View their Receipts
+        * View details about a Receipt
+        * View all Pending Packages
+        * View all Shipped Packages
+        * View all Delivered Packages
+        * View details about all Delivered Packages
+        * Ship Packages
+        * Deliver Packages
+
+___
 ## Technologies
 * Java - [JDK11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 
