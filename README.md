@@ -165,6 +165,7 @@ ___
 * Has a Password
 * Has an Email
 * Has an Role – can be one of the following values (“User”, “Admin”)
+
 [Package](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/domain/entities/Package.java)
 * Has an Id – a UUID String or an Integer.
 * Has a Description – a string.
@@ -173,6 +174,7 @@ ___
 * Has a Status – can be one of the following values (“Pending”, “Shipped”, “Delivered”, “Acquired”)
 * Has an Estimated Delivery Date – A LocalDateTime object.
 * Has a Recipient – a User object.
+
 [Receipt](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/domain/entities/Receipt.java)
 * Has an Id – a UUID String or an Integer.
 * Has a Fee – a decimal number.
