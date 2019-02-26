@@ -122,7 +122,7 @@ public class ApplicationBeanConfiguration {
 ```
 * Use of [Jargon2](https://github.com/kosprov/jargon2-api) for password hashing
 
-[Configuration](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/utils/PasswordHasher.java) 
+[Configuration](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/utils/PasswordHasher.java) / 
 [Usage](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/service/userService/UserServiceImpl.java)
 ```java
 public class UserServiceImpl implements UserService {
