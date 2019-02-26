@@ -186,6 +186,7 @@ ___
 * Guest (not logged in) users can access Index page and functionality.
 * Guest (not logged in) users can access Login page and functionality.
 * Guest (not logged in) users can access Register page and functionality.
+
 [Guest WebFilter](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/web/filters/GuestUserFilter.java)
 ```java
 @WebFilter({
@@ -208,6 +209,7 @@ public class GuestUserFilter implements Filter {
 * Users (logged in) can access User Receipt Details page and functionality. 
 * Users (logged in) can access User Package Acquire functionality.
 * Users (logged in) can access Logout functionality.
+
 [User WebFilter](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/web/filters/LoggedInUserFilter.java)
 ```java
 @WebFilter({
@@ -233,6 +235,7 @@ public class LoggedInUserFilter implements Filter {
 * Admins (logged in) can access the Admin Delivered Packages page and functionality.
 * Admins (logged in) can access the Admin Package Ship functionality. 
 * Admins (logged in) can access the Admin Package Deliver functionality.
+
 [Admin WebFilter](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/web/filters/AdminUserFilter.java)
 ```java
 @WebFilter({
