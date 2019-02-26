@@ -26,3 +26,15 @@ This files should be present in **TomEE\lib** folder
 * [hibernate-jpa-2.1-api-1.0.2.Final.jar](http://central.maven.org/maven2/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.2.Final/hibernate-jpa-2.1-api-1.0.2.Final.jar)
 ___
 #### Project configuration
+..............................................
+___
+## Version
+1.0-SNAPSHOT
+
+## Author
+**Ivelin DImitrov** 
+* [GitHub](https://github.com/ivelin1936)
+* [LinkedIn](https://www.linkedin.com/in/ivelin-dimitrov-42b13a151/)
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
