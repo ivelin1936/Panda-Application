@@ -26,8 +26,8 @@ This files should be present in **TomEE\lib** folder
 * [hibernate-jpa-2.1-api-1.0.2.Final.jar](http://central.maven.org/maven2/org/hibernate/javax/persistence/hibernate-jpa-2.1-api/1.0.2.Final/hibernate-jpa-2.1-api-1.0.2.Final.jar)
 ___
 #### Project configuration
-* [pom.xml]() - project setup - dependencies, compile, packaging
-* [beans.xml]() - default setup with **bean-discovery-mode="all"**
+* [pom.xml](https://github.com/ivelin1936/Panda-Application/blob/master/pom.xml) - project setup - dependencies, compile, packaging
+* [beans.xml](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/webapp/WEB-INF/beans.xml) - default setup with **bean-discovery-mode="all"**
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans
@@ -37,6 +37,31 @@ ___
                       http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
         bean-discovery-mode="all">
 </beans>
+```
+* [web.xml](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/webapp/WEB-INF/web.xml)
+* [persistence.xml](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/resources/META-INF/persistence.xml) - persistence unit setup
+```html
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="pandaPU" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <!-- &amp;allowPublicKeyRetrieval=true -->
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/panda_db?createDatabaseIfNotExist=true&amp;useSSL=false&amp;serverTimezone=UTC" />
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="1234"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+        </properties>
+    </persistence-unit>
+</persistence>
 ```
 ___
 
