@@ -158,6 +158,28 @@ public class UserServiceImpl implements UserService {
 ```
 ___
 
+## The Database of the PANDA application support 3 entities:
+[User](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/domain/entities/User.java)
+* Has an Id – a UUID String or an Integer.
+* Has an Username
+* Has a Password
+* Has an Email
+* Has an Role – can be one of the following values (“User”, “Admin”)
+[Package](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/domain/entities/Package.java)
+* Has an Id – a UUID String or an Integer.
+* Has a Description – a string.
+* Has a Weight – a floating-point number.
+* Has a Shipping Address – a string.
+* Has a Status – can be one of the following values (“Pending”, “Shipped”, “Delivered”, “Acquired”)
+* Has an Estimated Delivery Date – A LocalDateTime object.
+* Has a Recipient – a User object.
+[Receipt](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/java/pandaApp/domain/entities/Receipt.java)
+* Has an Id – a UUID String or an Integer.
+* Has a Fee – a decimal number.
+* Has an Issued On – a LocalDateTime object.
+* Has a Recipient – a User object.
+* Has a Package – a Package object.
+
 ## Project Functionality
 ### Users
 The first registered User should be assigned a role – "Admin". Every User after that, should have a role – "User".
@@ -198,19 +220,16 @@ Administrators can also create Packages for a specific User.
 When Packages are created, they are created with a Description, a Weight, a Shipping Address and a Recipient User. 
 * Upon creation, the Status of a Package should be set to Pending.
 * Upon creation, the Estimated Delivery Date of a Package should be set to NULL.
-
 #### Pending Packages
 A Pending Package, can be Shipped by an Administrator, by clicking on the [Ship] button from the Pending Packages Page. At that moment the Package Status becomes "Shipped" and the Estimated Delivery Date is to be set to a random of 20-40 days from then.
 * All Pending Packages are presented on the Pending Packages Page.
 * A User can view his Pending Packages on his Index Page in the Pending rectangular block.
 * A User can view details about each one of his Pending Packages from his Index Page, by clicking on the [Details] button.
-
 #### Shipped Packages
 A Shipped Package, can be Delivered by an Administrator, by clicking on the [Deliver] button from the Shipped Packages Page. At that moment the Package Status becomes "Delivered".
 * All Shipped Packages are presented on the Shipped Packages Page.
 * A User can view his Shipped Packages on his Index Page in the Shipped rectangular block.
 * A User can view details about each one of his Shipped Packages from his Index Page, by clicking on the [Details] button.
-
 #### Delivered Packages
 A Delivered Package, can be Acquired by the Package’s Recipient, by clicking on the [Acquire] button from his Index Page. At that moment the Package Status becomes "Acquired" and a Receipt is generated to the User for that Package.
 All Delivered Packages are presented on the Delivered Packages Page.
@@ -298,7 +317,6 @@ public class LoggedInUserFilter implements Filter {
     }
 }
 ```
-
 ___
 ## Technologies
 * Java - [JDK11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
