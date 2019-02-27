@@ -4,7 +4,7 @@ ___
 PANDA (Package Acceptance and National Delivery Application) is a platform for package deliveries, which is a fast-rising Start-Up, which lacks a web application. You have been employed by the KFC (Kung-Fu-Chicken) Corporation to implement a web platform for PANDA. 
 ___
 ## Setup
-Tested on Windows 8 x64
+Tested on Windows 8/10 x64
 ### Versions
 * Java **11.0.2**
 * Maven **3.6.0**
