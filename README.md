@@ -78,9 +78,8 @@ ___
     </servlet-mapping>
 </web-app>
 ```
-* Using transaction-type="RESOURCE_LOCAL"
-* [persistence.xml](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/resources/META-INF/persistence.xml) - persistence unit setup
-```html
+* [persistence.xml](https://github.com/ivelin1936/Panda-Application/blob/master/src/main/resources/META-INF/persistence.xml) - persistence unit setup. Using transaction-type="RESOURCE_LOCAL"
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
